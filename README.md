@@ -218,12 +218,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 **João Rafael Avansini Baião
 
 - GitHub: [@JRBaiao](https://github.com/JRbaiao)
-- LinkedIn: [João Rafael A. Baião]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/jo%C3%A3o-rafael-a-bai%C3%A3o-466b16283/))
+- LinkedIn: (https://www.linkedin.com/in/jo%C3%A3o-rafael-a-bai%C3%A3o-466b16283/)
 - Email: joaorafaelavancinibaiao4@gmail.com
 
 ## 🙏 Acknowledgments
 
-- Dataset source: [Add your dataset source]
+- Dataset source: https://www.kaggle.com/datasets/venky73/spam-mails-dataset/data
 - Inspired by various NLP and spam detection research
 - Thanks to the open-source community
 
