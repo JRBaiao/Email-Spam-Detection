@@ -1,0 +1,11 @@
+Dataset: spam_hamt_datase.csv # You can replace this with your actual dataset path
+Libraries:
+- String
+- Pandas
+- Scikit-learn
+- Numpy
+- NLTK
+- Seaborn
+- Matplotlib
+- Wordcloud
+- Scikit_learn
