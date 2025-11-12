@@ -61,8 +61,8 @@ This project implements an end-to-end spam classification pipeline that processe
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/spam-classification.git
-cd spam-classification
+git clone https://github.com/JRBaiao/Email-Spam-Detection.git
+cd Email-Spam-Detection
 ```
 
 2. Install required packages:
