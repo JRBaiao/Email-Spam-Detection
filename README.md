@@ -218,7 +218,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 **João Rafael Avansini Baião
 
 - GitHub: [@JRBaiao](https://github.com/JRbaiao)
-- LinkedIn: (https://www.linkedin.com/in/jo%C3%A3o-rafael-a-bai%C3%A3o-466b16283/)
+- LinkedIn: https://www.linkedin.com/in/jo%C3%A3o-rafael-a-bai%C3%A3o-466b16283/
 - Email: joaorafaelavancinibaiao4@gmail.com
 
 ## 🙏 Acknowledgments
