@@ -1,234 +1,129 @@
-# 📧 Email Spam Classification System
+# Email Spam Detection
 
-A machine learning-based spam detection system that uses Natural Language Processing (NLP) and Random Forest classification to accurately identify spam emails.
-
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0+-orange.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Model Performance](#model-performance)
-- [Visualizations](#visualizations)
-- [Technologies Used](#technologies-used)
-- [Future Improvements](#future-improvements)
-- [Contributing](#contributing)
-- [License](#license)
-
-## 🎯 Overview
-
-This project implements an end-to-end spam classification pipeline that processes email text data and distinguishes between legitimate (ham) and spam emails. The system uses advanced NLP techniques for text preprocessing and a Random Forest classifier for prediction.
-
-## ✨ Features
-
-- **Advanced Text Preprocessing**
-  - Lowercase conversion and punctuation removal
-  - Stopword filtering using NLTK
-  - Porter Stemming for word normalization
-  - Efficient text vectorization
-
-- **Machine Learning Model**
-  - Random Forest Classifier with 100 estimators
-  - Stratified train-test split for balanced evaluation
-  - Feature importance analysis
-  - Probability-based confidence scoring
-
-- **Comprehensive Visualizations**
-  - Data distribution analysis
-  - Text length comparison (spam vs. ham)
-  - Word clouds for visual word frequency
-  - Confusion matrix heatmap
-  - Top 20 most important features
-
-- **Model Evaluation**
-  - Accuracy, Precision, Recall, F1-Score metrics
-  - Detailed classification report
-  - Confusion matrix analysis
-
-## 🚀 Installation
-
-### Prerequisites
-
-- Python 3.8 or higher
-- pip package manager
-
-### Setup
-
-1. Clone the repository:
-```bash
-git clone https://github.com/JRBaiao/Email-Spam-Detection.git
-cd Email-Spam-Detection
-```
-
-2. Install required packages:
-```bash
-pip install -r requirements.txt
-```
-
-3. Download NLTK stopwords:
-```python
-python -c "import nltk; nltk.download('stopwords')"
-```
-
-### Requirements
-
-```
-numpy>=1.21.0
-pandas>=1.3.0
-scikit-learn>=1.0.0
-nltk>=3.6.0
-matplotlib>=3.4.0
-seaborn>=0.11.0
-wordcloud>=1.8.0
-```
-
-## 💻 Usage
-
-### Basic Usage
-
-```bash
-python spam_classifier.py
-```
-
-The script will:
-1. Load and preprocess the dataset
-2. Generate exploratory data analysis visualizations
-3. Train the Random Forest model
-4. Evaluate model performance
-5. Save all visualizations as PNG files
-6. Test prediction on a sample email
-
-### Output Files
-
-After running the script, you'll find these visualizations in your directory:
-- `01_data_distribution.png` - Class balance visualization
-- `02_text_length_distribution.png` - Text length analysis
-- `03_word_clouds.png` - Word frequency visualization
-- `04_confusion_matrix.png` - Model performance matrix
-- `05_feature_importance.png` - Top predictive features
-
-### Custom Prediction
-
-To classify your own email:
-
-```python
-from spam_classifier import preprocess_text, clf, vectorizer, stemmer, stopwords_set
-
-# Your email text
-email = "Congratulations! You've won $1000. Click here to claim now!"
-
-# Preprocess and predict
-email_preprocessed = preprocess_text(email, stemmer, stopwords_set)
-x_email = vectorizer.transform([email_preprocessed])
-prediction = clf.predict(x_email)[0]
-probability = clf.predict_proba(x_email)[0]
-
-print(f"Prediction: {'SPAM' if prediction == 1 else 'HAM'}")
-print(f"Confidence: {max(probability):.2%}")
-```
-
-## 📁 Project Structure
-
-```
-spam-classification/
-│
-├── spam_classifier.py          # Main script
-├── spam_ham_dataset.csv        # Dataset (add your own)
-├── requirements.txt            # Python dependencies
-├── README.md                   # Project documentation
-│
-├── visualizations/             # Generated plots
-│   ├── 01_data_distribution.png
-│   ├── 02_text_length_distribution.png
-│   ├── 03_word_clouds.png
-│   ├── 04_confusion_matrix.png
-│   └── 05_feature_importance.png
-│
-└── models/                     # Saved models (optional)
-    ├── vectorizer.pkl
-    └── classifier.pkl
-```
-
-## 📊 Model Performance
-
-| Metric | Score |
-|--------|-------|
-| Accuracy | ~97% |
-| Precision (Spam) | ~96% |
-| Recall (Spam) | ~95% |
-| F1-Score (Spam) | ~95% |
-
-*Note: Actual performance may vary based on dataset*
-
-## 📈 Visualizations
-
-### Data Distribution
-Shows the balance between spam and ham emails in the dataset.
-
-### Text Length Analysis
-Compares the length distribution of spam vs. legitimate emails, revealing patterns.
-
-### Word Clouds
-Visual representation of the most frequent words in spam and ham emails.
-
-### Confusion Matrix
-Detailed breakdown of true positives, false positives, true negatives, and false negatives.
-
-### Feature Importance
-Top 20 words that contribute most to the classification decision.
-
-## 🛠️ Technologies Used
-
-- **Python 3.8+** - Core programming language
-- **Scikit-learn** - Machine learning framework
-- **NLTK** - Natural language processing
-- **Pandas** - Data manipulation
-- **NumPy** - Numerical computing
-- **Matplotlib & Seaborn** - Data visualization
-- **WordCloud** - Word frequency visualization
-
-## 🔮 Future Improvements
-
-- [ ] Implement deep learning models (LSTM, BERT)
-- [ ] Add real-time email classification API
-- [ ] Support multi-language spam detection
-- [ ] Deploy as web application using Flask/FastAPI
-- [ ] Integrate with email clients (Gmail, Outlook)
-- [ ] Add model versioning and experiment tracking (MLflow)
-- [ ] Implement active learning for continuous improvement
-- [ ] Add email header analysis for better detection
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 👤 Author
-
-**João Rafael Avansini Baião
-
-- GitHub: [@JRBaiao](https://github.com/JRbaiao)
-- LinkedIn: https://www.linkedin.com/in/jo%C3%A3o-rafael-a-bai%C3%A3o-466b16283/
-- Email: joaorafaelavancinibaiao4@gmail.com
-
-## 🙏 Acknowledgments
-
-- Dataset source: https://www.kaggle.com/datasets/venky73/spam-mails-dataset/data
-- Inspired by various NLP and spam detection research
-- Thanks to the open-source community
+A spam classifier for email text, built with an NLP preprocessing pipeline and a Random Forest model. Trained and evaluated on 5,171 emails from the Enron corpus, it reaches **98.5% accuracy** on a held-out test set, with **98% of spam caught**.
 
 ---
 
-⭐ If you found this project helpful, please consider giving it a star!
+## Results
 
-**Made with ❤️ and Python**
+Evaluated on a stratified 20% test set (1,035 emails):
+
+| Metric | Ham | Spam |
+|---|---|---|
+| Precision | 99.2% | 96.7% |
+| Recall | 98.6% | 98.0% |
+| F1-score | 98.9% | 97.4% |
+
+**Overall accuracy: 98.5%**
+
+<p align="center">
+  <img src="img/04_confusion_matrix.png" alt="Confusion matrix" width="520">
+</p>
+
+Of 300 spam emails in the test set, 294 were caught and 6 slipped through. Of 735 legitimate emails, 10 were wrongly flagged as spam. For a spam filter, those false positives matter most: a missed spam email is an annoyance, but a legitimate email sent to the spam folder may never be read.
+
+---
+
+## Pipeline
+
+```mermaid
+flowchart LR
+    A[Raw email text] --> B[Lowercase and<br/>remove punctuation]
+    B --> C[Remove English<br/>stopwords]
+    C --> D[Porter<br/>stemming]
+    D --> E[Bag of words<br/>top 5,000 terms]
+    E --> F[Random Forest<br/>100 trees]
+    F --> G[Spam / Ham<br/>+ confidence]
+```
+
+| Stage | Implementation |
+|---|---|
+| Text cleaning | Lowercasing and punctuation removal |
+| Stopword removal | NLTK English stopword list |
+| Normalisation | Porter stemmer, so that *offer*, *offers* and *offering* count as one word |
+| Vectorisation | `CountVectorizer` limited to the 5,000 most frequent terms |
+| Model | `RandomForestClassifier`, 100 estimators |
+| Evaluation | Stratified 80/20 split, preserving the spam/ham ratio in both sets |
+
+---
+
+## Dataset
+
+The [Spam Mails Dataset](https://www.kaggle.com/datasets/venky73/spam-mails-dataset) from Kaggle, included in this repository as `spam_ham_dataset.csv`. It contains 5,171 emails from the Enron corpus: **3,672 ham (71%)** and **1,499 spam (29%)**.
+
+<p align="center">
+  <img src="img/01_data_distribution.png" alt="Class distribution" width="460">
+</p>
+
+---
+
+## Exploratory analysis
+
+**Text length.** Spam and legitimate emails differ in length distribution, one of the patterns explored before modelling.
+
+![Text length distribution](img/02_text_length_distribution.png)
+
+**Most frequent words.** Word clouds for each class show clearly different vocabularies.
+
+![Word clouds](img/03_word_clouds.png)
+
+**Most important features.** The 20 stemmed words the model relies on most.
+
+<p align="center">
+  <img src="img/05_feature_importance.png" alt="Top 20 features" width="620">
+</p>
+
+---
+
+## Limitations
+
+- **The model partly learns the corpus, not just spam.** Several of the most important features, such as *enron*, *hpl*, *daren* and *meter*, are specific to Enron's internal business emails. They help identify legitimate mail *in this dataset*, but mean nothing for an inbox outside Enron. Performance on other email sources would likely be lower than the scores above.
+- **Duplicates may inflate the scores.** The dataset contains 268 duplicate email texts. Where a duplicate falls into both the training and the test set, the model is partly tested on emails it has already seen.
+- **Vocabulary is built before the split.** The vectoriser is fitted on the full dataset, so the test set influences which 5,000 terms are kept. The effect is small here, but a production pipeline should fit it on training data only.
+- **Word counts ignore context.** A bag-of-words model sees *free* the same way in "free trial" and "feel free to call", and cannot use sender, header or link information.
+
+---
+
+## Getting started
+
+Requires Python 3.8+.
+
+```bash
+git clone https://github.com/JRBaiao/Email-Spam-Detection.git
+cd Email-Spam-Detection
+pip install -r requirements.txt
+```
+
+The NLTK stopword list is downloaded automatically the first time a script runs.
+
+### Run
+
+```bash
+python visual_graph.py   # full pipeline: analysis charts, training, evaluation and a sample prediction
+python main.py           # training, evaluation and a sample prediction only, no charts
+```
+
+Charts are saved as PNG files in the working directory. The copies shown in this README are in `img/`.
+
+Results can vary slightly across library versions because of changes in scikit-learn's Random Forest implementation.
+
+---
+
+## Project structure
+
+```
+├── visual_graph.py          # Full pipeline with exploratory and evaluation charts
+├── main.py                  # Lightweight training and evaluation script
+├── spam_ham_dataset.csv     # Dataset (5,171 emails)
+├── img/                     # Generated charts used in this README
+├── requirements.txt
+└── LICENSE
+```
+
+## Next steps
+
+- Deduplicate the data and fit the vectoriser inside the training split, to get an unbiased performance estimate
+- Remove corpus-specific terms, or test on a second email dataset, to measure how well the model generalises
+- Compare against TF-IDF with logistic regression or Naive Bayes, the standard baselines for text classification
+- Tune the decision threshold to reduce false positives, the costlier error for users
+- Save the trained model and vectoriser so new emails can be classified without retraining
